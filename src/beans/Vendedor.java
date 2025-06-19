@@ -38,6 +38,13 @@ public class Vendedor {
         this.cpf = cpf;
     }
     
+      public String toString() {
+        return this.nome;
+    }
     
+    public boolean equals(Object o) {
+        Vendedor compara = (Vendedor) o;
+        return this.codigo== compara.codigo;
+    }
     
 }
