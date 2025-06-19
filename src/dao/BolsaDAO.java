@@ -22,15 +22,6 @@ public class BolsaDAO {
         this.conn = Conexao.getConexao();
     }
 
-//    codigo_bolsa INT AUTO_INCREMENT PRIMARY KEY,
-//modelo VARCHAR(50) NOT NULL,
-//tamanho VARCHAR(10) NOT NULL,
-//cor VARCHAR(20) NOT NULL,
-//codigo_marca INT,
-//preco DECIMAL(10,2) NOT NULL,
-//qtde_estoque INT NOT NULL,
-//data_cadastro DATE NOT NULL,
-//FOREIGN KEY(codigo_marca) REFERENCES marca (codigo_marca)
     public void inserir(Bolsa bolsa) throws Exception {
         String sql = "INSERT INTO bolsa (modelo, tamanho, marca, cor, preco, qtde_estoque, data_cadastro) "
                 + "VALUES (?, ?, ?, ?, ?, ?, ?)";
