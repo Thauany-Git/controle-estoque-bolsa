@@ -1,0 +1,54 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package dao;
+
+import beans.Bolsa;
+import conexao.Conexao;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+
+/**
+ *
+ * @author thaua
+ */
+public class BolsaDAO {
+
+    private Connection conn;
+
+    public BolsaDAO() {
+        this.conn = Conexao.getConexao();
+    }
+
+//    codigo_bolsa INT AUTO_INCREMENT PRIMARY KEY,
+//modelo VARCHAR(50) NOT NULL,
+//tamanho VARCHAR(10) NOT NULL,
+//cor VARCHAR(20) NOT NULL,
+//codigo_marca INT,
+//preco DECIMAL(10,2) NOT NULL,
+//qtde_estoque INT NOT NULL,
+//data_cadastro DATE NOT NULL,
+//FOREIGN KEY(codigo_marca) REFERENCES marca (codigo_marca)
+    public void inserir(Bolsa bolsa) throws Exception {
+        String sql = "INSERT INTO bolsa (modelo, tamanho, marca, cor, preco, qtde_estoque, data_cadastro) "
+                + "VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+        try {
+            PreparedStatement stmt = this.conn.prepareStatement(sql);
+            stmt.setString(1, bolsa.getModelo());
+            stmt.setString(2, bolsa.getTamanho());
+            stmt.setString(3, bolsa.getMarca());
+            stmt.setString(4, bolsa.getCor());
+            stmt.setFloat(5, bolsa.getPreco());
+            stmt.setInt(6, bolsa.getQtde_estoque());
+            stmt.setDate(7, (Date) bolsa.getData_cadastro());
+
+            stmt.execute();
+        } catch (Exception e) {
+            throw new Exception("Erro ao inserir bolsa: " + e.getMessage());
+        }
+    }
+
+}
