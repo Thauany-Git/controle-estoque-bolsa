@@ -1,6 +1,6 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
 package forms;
 
@@ -15,19 +15,17 @@ import javax.swing.JOptionPane;
  *
  * @author thaua
  */
-public class FormMovimentacoes extends javax.swing.JFrame {
-
-    private MovimentacoesDAO movimentacoesDAO;
+public class FormMovimentacoess extends javax.swing.JInternalFrame {
+     private MovimentacoesDAO movimentacoesDAO;
     private VendedorDAO vendedorDAO;
 
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FormMovimentacoes.class.getName());
-
     /**
-     * Creates new form FormMovimentações
+     * Creates new form FormMovimentacoess
      */
-    public FormMovimentacoes() {
+    public FormMovimentacoess() {
         initComponents();
-
+        
+        
         // Define a data atual no JDateChooser
         dtData.setDate(new java.util.Date());
 
@@ -50,7 +48,6 @@ public class FormMovimentacoes extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Erro ao preencher vendedores");
         }
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -60,29 +57,26 @@ public class FormMovimentacoes extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField2 = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        dtData = new com.toedter.calendar.JDateChooser();
-        jLabel4 = new javax.swing.JLabel();
+        btFechar = new javax.swing.JButton();
         txtDescricao = new javax.swing.JTextField();
         cmbTipo = new javax.swing.JComboBox<>();
         cmbVendedor = new javax.swing.JComboBox();
-        txtCodigo = new javax.swing.JTextField();
         btCadastrar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        txtCodigo = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        dtData = new com.toedter.calendar.JDateChooser();
+        jLabel4 = new javax.swing.JLabel();
+        btFechar1 = new javax.swing.JButton();
 
-        jTextField2.setText("jTextField2");
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jLabel1.setText("Codigo:");
-
-        jLabel2.setText("Tipo:");
-
-        jLabel3.setText("Descrição:");
-
-        jLabel4.setText("Vendedor:");
+        btFechar.setBackground(new java.awt.Color(255, 51, 51));
+        btFechar.setText("X");
+        btFechar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btFecharActionPerformed(evt);
+            }
+        });
 
         cmbTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Entrada", "Saída" }));
         cmbTipo.addActionListener(new java.awt.event.ActionListener() {
@@ -90,8 +84,6 @@ public class FormMovimentacoes extends javax.swing.JFrame {
                 cmbTipoActionPerformed(evt);
             }
         });
-
-        txtCodigo.setEditable(false);
 
         btCadastrar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btCadastrar.setText("Cadastrar");
@@ -101,12 +93,30 @@ public class FormMovimentacoes extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setText("Codigo:");
+
+        jLabel2.setText("Tipo:");
+
+        txtCodigo.setEditable(false);
+
+        jLabel3.setText("Descrição:");
+
+        jLabel4.setText("Vendedor:");
+
+        btFechar1.setBackground(new java.awt.Color(255, 51, 51));
+        btFechar1.setText("X");
+        btFechar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btFechar1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(46, 46, 46)
+                .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -118,15 +128,16 @@ public class FormMovimentacoes extends javax.swing.JFrame {
                                 .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(cmbVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel3))
+                            .addComponent(jLabel3)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(75, 75, 75)
+                                .addComponent(dtData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(30, 30, 30)
+                                .addComponent(btFechar1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
-                        .addComponent(dtData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(138, 138, 138))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btCadastrar)
@@ -136,12 +147,15 @@ public class FormMovimentacoes extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel1)
-                        .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(dtData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(dtData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel1)
+                                .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(btFechar1))
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -152,9 +166,9 @@ public class FormMovimentacoes extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btCadastrar)
-                .addContainerGap(84, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -165,50 +179,38 @@ public class FormMovimentacoes extends javax.swing.JFrame {
     }//GEN-LAST:event_cmbTipoActionPerformed
 
     private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
-        
+
         Movimentações m = new Movimentações();
-        
+
         m.setTipo(cmbTipo.getSelectedItem().toString());
         m.setDescricao(txtDescricao.getText());
         m.setData_movimentacao(new java.sql.Date(dtData.getDate().getTime()));
         m.setVendedor((Vendedor) cmbVendedor.getSelectedItem());
-      
+
         try {
             this.movimentacoesDAO.inserir(m);
             JOptionPane.showMessageDialog(this, "Movimentação salva com sucesso");
-           // limparCampos();
+            // limparCampos();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
     }//GEN-LAST:event_btCadastrarActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void btFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btFecharActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_btFecharActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new FormMovimentacoes().setVisible(true));
-    }
+    private void btFechar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btFechar1ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_btFechar1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btCadastrar;
+    private javax.swing.JButton btFechar;
+    private javax.swing.JButton btFechar1;
     private javax.swing.JComboBox<String> cmbTipo;
     private javax.swing.JComboBox cmbVendedor;
     private com.toedter.calendar.JDateChooser dtData;
@@ -216,7 +218,6 @@ public class FormMovimentacoes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtDescricao;
     // End of variables declaration//GEN-END:variables
